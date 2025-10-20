@@ -163,7 +163,7 @@ document.write("Hai, " + nama);
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/5128918d-c441-46b1-a085-a5bdff2f5c6d" />
 
 
-## Seleksi Kondisi (IF.ELSE)
+## b. Seleksi Kondisi (IF.ELSE)
 
 **CODE**
 
@@ -209,7 +209,7 @@ document.write("Hai, " + nama);
 
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/bedfad7f-28b8-49ad-9c26-fdbda1383efb" />
 
-## Penggunaaan Operator Switch Untuk Seleksi Kondisi
+## c. Penggunaaan Operator Switch Untuk Seleksi Kondisi
 
 **CODE**
 
@@ -259,7 +259,7 @@ function test()
 <img width="177" height="111" alt="image" src="https://github.com/user-attachments/assets/8e61f3cb-471c-4a4c-8926-905266f0872d" />
 
 # Pembuatan Form
-## Form Input
+## a. Form Input
 
 **CODE**
 ```
@@ -294,14 +294,277 @@ function test()
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/b6dc4d61-9cc5-42f0-a4ef-ef6524cb319c" />
 
 
-## Form Button
+## b. Form Button
 
 **CODE**
 
+```
+<html>
+<head>
+    <title>objek document</title>
+</head>
+<body>
+    <script language="javascript">
+    <!--
+    function ubahWarnaLB(warna) {
+        document.bgColor = warna;
+    }
+    function ubahWarnaLD(warna) {
+        document.fgColor = warna;
+    }
+    //-->
+    </script>
+
+    <h1>tes</h1>
+    <form>
+        <input type="button" value="Latar Belakang Hijau" onClick="ubahWarnaLB('GREEN')">
+        <input type="button" value="Latar Belakang Putih" onClick="ubahWarnaLB('WHITE')">
+        <input type="button" value="Teks Kuning" onClick="ubahWarnaLD('YELLOW')">
+        <input type="button" value="Teks Biru" onClick="ubahWarnaLD('BLUE')">
+    </form>
+
+    <script language="javascript">
+    <!--
+    document.write("Dimodifikasi terakhir pada " + 
+    document.lastModified);
+    //-->
+</script>
+</body>
+</html>
+```
+
+**HASIL AWAL =**
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/e50274ca-9e0a-43c1-bd90-cd1d91c87b0f" />
+
+
+**HASIL AKHIR =**
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/e02d657d-c2ce-4aa8-98ef-fe9e4e89186b" />
+
+
+# HTML DOM
+
+## Pilihan menggunakan checkBox dengan perhitungan otomatis
+
+**CODE**
+
+```
+<html>
+<head>
+    <title>Daftar Menu</title>
+    <script>
+        function hitung(ele) {
+        var total = document.getElementById('total').value;
+        total = (total ? parseInt(total) : 0);
+        var harga = 0;
+
+        if (ele.checked) {
+            harga = ele.value;
+            total += parseInt(harga);
+        } else {
+            harga = ele.value;
+            if (total > 0)
+                total -= parseInt(harga);
+        }
+
+            document.getElementById('total').value = total;
+        }
+    </script>
+</head>
+<body>
+    <h1>Daftar Menu Makanan</h1>
+    <label><input type="checkbox" value="5000" id="menu1" onClick="hitung(this);"/> Ayam Goreng Rp. 5.000</label><br/>
+    <label><input type="checkbox" value="500" id="menu2" onClick="hitung(this);"/> Tempe Goreng Rp. 500</label><br/>
+    <label><input type="checkbox" value="2500" id="menu3" onClick="hitung(this);"/> Telur Dadar Rp. 2.500</label><hr/>
+    <strong>Total Bayar: Rp. <input id="total" type="text"/></strong>
+</body>
+</html>
+```
+
+
+**HASIL AWAL =**
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/d96cebd5-925b-4289-8e6d-c4ab58637892" />
+
+**HASIL AKHIR =**
+
+<img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/8a391a7e-7441-41d7-90c3-82e6c6b140e4" />
 
 
 
+# Pertanyaan dan Tugas
 
+## 1. Buat script untuk melakukan validasi pada isian form.
 
+**CODE**
+```
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Absensi Siswa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #e8f0fe;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #1a73e8;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 6px;
+        }
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cfd8dc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .error {
+            color: #e53935;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            font-size: 15px;
+        }
+        button:hover {
+            background-color: #0b59c8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Absensi Siswa</h2>
+        <form id="formAbsensi" onsubmit="return validasiAbsensi()">
+            <div class="form-group">
+                <label for="nama">Nama Siswa:</label>
+                <input type="text" id="nama" name="nama">
+                <div class="error" id="errorNama"></div>
+            </div>
 
+            <div class="form-group">
+                <label for="kelas">Kelas:</label>
+                <select id="kelas" name="kelas">
+                    <option value="">-- Pilih Kelas --</option>
+                    <option value="X">X</option>
+                    <option value="XI">XI</option>
+                    <option value="XII">XII</option>
+                </select>
+                <div class="error" id="errorKelas"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="tanggal">Tanggal Kehadiran:</label>
+                <input type="date" id="tanggal" name="tanggal">
+                <div class="error" id="errorTanggal"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status Kehadiran:</label>
+                <select id="status" name="status">
+                    <option value="">-- Pilih Status --</option>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Izin">Izin</option>
+                    <option value="Sakit">Sakit</option>
+                    <option value="Alpa">Alpa</option>
+                </select>
+                <div class="error" id="errorStatus"></div>
+            </div>
+
+            <button type="submit">Simpan Absensi</button>
+        </form>
+    </div>
+
+    <script>
+        function validasiAbsensi() {
+            // reset pesan error
+            document.getElementById("errorNama").textContent = "";
+            document.getElementById("errorKelas").textContent = "";
+            document.getElementById("errorTanggal").textContent = "";
+            document.getElementById("errorStatus").textContent = "";
+
+            // ambil nilai
+            const nama = document.getElementById("nama").value.trim();
+            const kelas = document.getElementById("kelas").value;
+            const tanggal = document.getElementById("tanggal").value;
+            const status = document.getElementById("status").value;
+
+            let valid = true;
+
+            // validasi nama
+            if (nama === "") {
+                document.getElementById("errorNama").textContent = "Nama harus diisi";
+                valid = false;
+            } else if (nama.length < 3) {
+                document.getElementById("errorNama").textContent = "Nama minimal 3 karakter";
+                valid = false;
+            }
+
+            // validasi kelas
+            if (kelas === "") {
+                document.getElementById("errorKelas").textContent = "Pilih kelas terlebih dahulu";
+                valid = false;
+            }
+
+            // validasi tanggal
+            if (tanggal === "") {
+                document.getElementById("errorTanggal").textContent = "Tanggal harus diisi";
+                valid = false;
+            }
+
+            // validasi status
+            if (status === "") {
+                document.getElementById("errorStatus").textContent = "Pilih status kehadiran";
+                valid = false;
+            }
+
+            if (valid) {
+                alert("Absensi berhasil disimpan!");
+            }
+
+            return false; // supaya tidak reload halaman
+        }
+    </script>
+</body>
+</html>
+```
+
+**HASIL AWAL=**
+
+<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/da9b9ad5-6fc2-45bf-bbd0-6529dbedd6ed" />
+
+**HASIL AKHIR=**
+
+<img width="700" height="350" alt="image" src="https://github.com/user-attachments/assets/92757f93-1d49-403b-a3c5-97523a119352" />
 
